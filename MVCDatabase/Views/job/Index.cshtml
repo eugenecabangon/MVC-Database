@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Job Details</h1>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+@using (Html.BeginForm("Index", "job", FormMethod.Post))
+
+{
+    <table>
+        <tr>
+            <th>Task Name: @Html.TextBox("taskName", null)</th>
+        </tr>
+        <tr>
+            <th>Description: @Html.TextArea("description", new { @class = "form-control", @cols = 20, @rows = 5 }) </th>
+        </tr>
+        <tr>
+            <th>Date Started: @Html.TextBox("dateStarted", null, new { @type = "date" }) </th>
+        </tr>
+        <tr>
+            <th>Date Finished: @Html.TextBox("dateFinished", null, new { @type = "date" }) </th>
+        </tr>
+        <tr>
+            <th>Status: @Html.TextBox("status", null) </th>
+        </tr>
+        <tr></tr>
+    </table>
+    <input type="submit" value="Save" />
+}
+@using (Html.BeginForm("List", "job", FormMethod.Post))
+{
+    <input type="submit" value="List"/>
+}
+
+

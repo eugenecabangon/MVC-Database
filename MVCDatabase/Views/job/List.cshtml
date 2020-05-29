@@ -1,0 +1,41 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "List";
+}
+
+
+<center><h1>List</h1></center>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<table>
+    <tr>
+        <th>Job ID</th>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Date Started</th>
+        <th>Date Finished</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @for(int i = 0; i < Model.Rows.Count; i++)
+    {
+    <tr>
+        <td>@Model.Rows[i][0]</td>
+        <td>@Model.Rows[i][1]</td>
+        <td>@Model.Rows[i][2]</td>
+        <td>@Model.Rows[i][3]</td>
+        <td>@Model.Rows[i][4]</td>
+        <td>@Model.Rows[i][5]</td>
+        <td>
+            <a href="@Url.Action("Edit", "job", new { @id = Model.Rows[i][0] })">Edit</a>
+            <a href="@Url.Action("Delete", "job", new { @id = Model.Rows[i][0] })">Delete</a>
+        </td>
+    </tr>
+    }
+
+</table>
+
+
